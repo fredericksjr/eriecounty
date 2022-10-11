@@ -1445,7 +1445,6 @@ def winr0799(f_name):
     getVendorName = False
     startDetail = False
 
-    #out_str = ("LOCAL OFFICE\t" + "UNIT\t" + "WORKER\t" + "CASE NAME\t" + "CASE NUMBER\t" + "EXCEPTION REASON")
     out_str = ("UNIT\t" + "LOCAL OFFICE\t" + "WORKER\t" + "CASE NUMBER\t" + "CASE NAME\t" + "CASE TYPE\t" + "CID ID\t" + "VR IND\t" +
         "Date of Death\t" + "Exception Message (Case is not closed)")
 
@@ -1481,19 +1480,23 @@ def winr0799(f_name):
 
             #if countLines == 2  :
             else  :
-                caseNumber = record[8:18].strip() + '\t'
-                caseName = record[27:57].strip() + '\t'
-                caseType = record[57:59].strip() + '\t'
-                cinId = record[67:75].strip() + '\t'
-                vrInd = record[82:84].strip() + '\t'
-                dateOfDeathMM = record[90:92].strip() + '/'
-                dateOfDeathDD = record[92:94].strip() + '/'
-                dateOfDeathYYYY = record[94:98].strip()
-                if dateOfDeathYYYY == ''  :
-                    dateOfDeath = '\t'
+                if record[8:57].strip() == ''  :
+                    vrInd = record[82:84].strip() + '\t'
+                    exceptionMessage = record[104:].strip()
                 else  :
-                    dateOfDeath = dateOfDeathMM + dateOfDeathDD + dateOfDeathYYYY + '\t'
-                exceptionMessage = record[104:].strip()
+                    caseNumber = record[8:18].strip() + '\t'
+                    caseName = record[27:57].strip() + '\t'
+                    caseType = record[57:59].strip() + '\t'
+                    cinId = record[67:75].strip() + '\t'
+                    vrInd = record[82:84].strip() + '\t'
+                    dateOfDeathMM = record[90:92].strip() + '/'
+                    dateOfDeathDD = record[92:94].strip() + '/'
+                    dateOfDeathYYYY = record[94:98].strip()
+                    if dateOfDeathYYYY == ''  :
+                        dateOfDeath = '\t'
+                    else  :
+                        dateOfDeath = dateOfDeathMM + dateOfDeathDD + dateOfDeathYYYY + '\t'
+                    exceptionMessage = record[104:].strip()
 
                 out_str = (unit + localOffice + worker + caseNumber + caseName + caseType + cinId + 
                     vrInd + dateOfDeath + exceptionMessage)
@@ -1505,7 +1508,6 @@ def winr0799(f_name):
                     f.close()
                     countWrites = countWrites +1 
                     countLines = 0
-                    heapPerson = ' '
               
     df = pd.read_csv(outfile,sep='\t',lineterminator='\n',header=None)
     df.to_excel(outfilexlsx,'Sheet1',index=False,header=False)   
