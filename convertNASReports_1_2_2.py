@@ -9,18 +9,19 @@ __email__   = "frederick.sulkowski@erie.gov"
 from argparse import ArgumentDefaultsHelpFormatter
 from ftplib import ftpcp
 from turtle import goto
+import os
+import pandas as pd
+from tkinter import messagebox
+
 
 
 def main():
-
-    import os
-    #import numpy    
-    #import pandas as pd
 
     # read files in current directory
     for f_name in os.listdir('.'):
         if (f_name.startswith('001-X-WMMRELNA-14') and f_name.endswith('.txt')) or (f_name.startswith('001-X-WMMRRJNA-14') and f_name.endswith('.txt')) :
             wmmrelna(f_name)
+
         if f_name.startswith('001-X-WMMREXNA-14') and f_name.endswith('.txt') :
             wmmrexna(f_name)
         if f_name.startswith('001-X-WM4DELNA-14') and f_name.endswith('.txt') :
@@ -53,14 +54,12 @@ def main():
             wbb101(f_name)            
         if (f_name.startswith('PERIE-PYCHECKS') and f_name.endswith('.txt')) :
             lfrr0011(f_name)            
+        if (f_name.startswith('PERIE-SVRETVCH') and f_name.endswith('.txt')) :            
+            retrt010(f_name)            
 
 #===================================================================================================
 
 def wmmrelna(f_name):
-
-    from tkinter import messagebox
-    import os
-    import pandas as pd
 
     escape = '\u001B'
     carriage = '\r'
@@ -160,10 +159,6 @@ def wmmrelna(f_name):
 
 def wmmrexna(f_name):
 
-    from tkinter import messagebox
-    import os
-    import pandas as pd
-
     escape = '\u001B'
     carriage = '\r'
 
@@ -239,10 +234,6 @@ def wmmrexna(f_name):
 #===================================================================================================
 
 def wm4delna(f_name):
-
-    from tkinter import messagebox
-    import os
-    import pandas as pd
 
     escape = '\u001B'
     carriage = '\r'
@@ -346,10 +337,6 @@ def wm4delna(f_name):
 #===================================================================================================
 
 def wm4dexna(f_name):
-
-    from tkinter import messagebox
-    import os
-    import pandas as pd
  
     escape = '\u001B'
     carriage = '\r'
@@ -365,7 +352,7 @@ def wm4dexna(f_name):
     if os.path.exists(outfile):
         os.remove(outfile)
 
-    outfilexlsx = "ec_" + os.path.splitext(f_name)[0] + ".xlsx"
+    outfilexlsx = "WMRIV1 DEXNA MRBA - EXCEPTION LIST FOR IVD [" + os.path.splitext(f_name[28:38])[0] + "].xlsx"
     if os.path.exists(outfilexlsx):
         os.remove(outfilexlsx)
 
@@ -449,10 +436,6 @@ def wm4dexna(f_name):
 #===================================================================================================
 
 def wmscsdx5(f_name):
-
-    from tkinter import messagebox
-    import os
-    import pandas as pd
     
     escape = '\u001B'
     carriage = '\r'
@@ -574,10 +557,6 @@ def wmscsdx5(f_name):
 #===================================================================================================
 
 def wmsbf630(f_name):
-
-    from tkinter import messagebox
-    import os
-    import pandas as pd
     
     escape = '\u001B'
     carriage = '\r'
@@ -692,10 +671,6 @@ def wmsbf630(f_name):
 #===================================================================================================
 
 def wmsbf650(f_name):
-
-    from tkinter import messagebox
-    import os
-    import pandas as pd
     
     escape = '\u001B'
     carriage = '\r'
@@ -820,17 +795,6 @@ def wmsbf650(f_name):
 
 def wmsa5257(f_name):
 
-    from tkinter import messagebox
-    import os
-    import pandas as pd
-
-#    import fnmatch
-#    import time
-#    import operator
-    
-#    from operator import itemgetter
-
-###    timestr = time.strftime("%Y%m%d.%H%M%S")
     escape = '\u001B'
     carriage = '\r'
             
@@ -919,10 +883,6 @@ def wmsa5257(f_name):
 #===================================================================================================
 
 def wmsc1025(f_name):
-
-    from tkinter import messagebox
-    import os
-    import pandas as pd
 
     escape = '\u001B'
     carriage = '\r'
@@ -1022,10 +982,6 @@ def wmsc1025(f_name):
 #===================================================================================================
 
 def wmsc1026(f_name):
-
-    from tkinter import messagebox
-    import os
-    import pandas as pd
 
     escape = '\u001B'
     carriage = '\r'
@@ -1130,10 +1086,6 @@ def wmsc1026(f_name):
 
 def wmsc2027(f_name):
 
-    from tkinter import messagebox
-    import os
-    import pandas as pd
-
     escape = '\u001B'
     carriage = '\r'
             
@@ -1237,10 +1189,6 @@ def wmsc2027(f_name):
 
 def wmsbhigh(f_name):
 
-    from tkinter import messagebox
-    import os
-    import pandas as pd
-
     escape = '\u001B'
     carriage = '\r'
             
@@ -1334,10 +1282,6 @@ def wmsbhigh(f_name):
 
 def wmsc4210(f_name):
 
-    from tkinter import messagebox
-    import os
-    import pandas as pd
-
     escape = '\u001B'
     carriage = '\r'
             
@@ -1424,10 +1368,6 @@ def wmsc4210(f_name):
 #===================================================================================================
 
 def winr0799(f_name):
-
-    from tkinter import messagebox
-    import os
-    import pandas as pd
 
     escape = '\u001B'
     carriage = '\r'
@@ -1530,10 +1470,6 @@ def winr0799(f_name):
 #===================================================================================================
 
 def wbb101(f_name):
-
-    from tkinter import messagebox
-    import os
-    import pandas as pd
 
     escape = '\u001B'
     carriage = '\r'
@@ -1648,9 +1584,6 @@ def wbb101(f_name):
 
 def lfrr0011(f_name):
 
-    from tkinter import messagebox
-    import os
-    import pandas as pd
     import openpyxl as pxl
     from openpyxl.utils.dataframe import dataframe_to_rows
 
@@ -1780,11 +1713,130 @@ def lfrr0011(f_name):
     for r_idx, row in enumerate(rows, 1) :
         for c_idx, value in enumerate(row,1) :
             ws.cell(row=r_idx, column=c_idx,value=value)
+    os.remove(outfile2)            
     excel_book.save(outfilexlsx)
-
     print("Completed!  " + str(countWrites) + " records converted from " + f_name + " !")
 
     messagebox.showinfo("Completed - LFRR0011", "Completed!  " + str(countWrites) + " records converted from " + f_name + " !")
+
+    return
+
+#===================================================================================================
+
+def retrt010(f_name):
+
+    escape = '\u001B'
+    carriage = '\r'
+    colon = '\ua789'
+            
+    # setup count variables
+    countLines = 0
+    countWrites = 0
+    countFiles = 0
+    
+    # read file
+    outfile = "ec_" + f_name
+    if os.path.exists(outfile):
+        os.remove(outfile)
+
+    outfilexlsx = "RETRT010 - RETRO RATE CHANGE APPROVED VOUCHERS REPORT [" + os.path.splitext(f_name[25:35])[0] + "].xlsx"
+    if os.path.exists(outfilexlsx):
+        os.remove(outfilexlsx)
+
+    file = open(f_name)
+    lines = file.readlines()
+    file.close()
+            
+    out_str = ("Voucher #\t" + "Vendor\t" + "Vendor Name\t" + "Placement Vendor ID\t" + "Remitance (Payment Amount of new Retro Rate Voucher line)\t" + 
+        "Line #\t" + "Case #\t" + "Recipient\t" + "Dob\t" + "New LOD (Level of Difficulty)\t" + "New Program Type (PG)\t" +
+        "New Service Type\t" + "New Service Period From\t" + "New Service Period To\t" + "New POS Type Pass-Through Rate (PASS)\t" +
+        "New Clothing Rate\t" + "New Administrative Rate\t" + "New Total Rate\t" + "Original Voucher\t" +
+        "Check #\t" + "Check Date\t" + "Auth #\t" + "Original LOD (Level of Difficulty)\t" + "Original Program Type (PG)\t" +
+        "Original Service Type\t" + "Original Service Period From\t" + "Original Service Period To\t" + "Original POS Type Pass-Through Rate (PASS)\t" + 
+        "Original Clothing Rate\t" + "Original Administrative Rate\t" + "Original Total Rate")
+
+    print("f_name is " + f_name)
+
+    # write to results file                                
+    if out_str != ' ':
+        f = open(outfile,"a")
+        f.write(out_str + "\n")
+        f.close()
+    
+    for line in lines:
+        record = line
+        #line = line.strip().upper()
+        line = line.strip()
+
+        if (not line.startswith('REPORT DATE') and not line[40:45] == ('RETRO')
+            and not line.startswith('BICS') and not line.startswith('VOUCHER AMOUNT')
+            and not line.startswith('LINE')
+            and not line.startswith(escape) and not line.startswith(carriage) and len(line) != 0):
+
+            countLines = countLines + 1
+
+            #if countLines == 1  :
+            if line.startswith('VOUCHER NO')  :
+                voucherNumber = record[14:22].strip() + '\t'
+                vendor = record[32:40].strip() + '\t'
+                vendorName = record[55:84].strip() + '\t'
+                placementVendorId = record[103:111].strip() + '\t'
+
+            #if countLines == 2  :
+            else  :
+                if record[6:36].strip() != ''  :
+                    if record[0:1].strip() == '' :
+                        lineNumber = record[1:5].strip() + '\t'
+                        caseNumber = record[6:16].strip() + '\t'
+                        recipientId = record[17:25].strip() + '\t'
+                        dob = record[26:34].strip() + '\t'
+                        newLd = record[35:37].strip() + '\t'
+                        newPg = record[38:40].strip() + '\t'
+                        newSt = record[41:43].strip() + '\t'
+                        newServicePeriodFrom = record[44:52].strip() + '\t'
+                        newServicePeriodTo = record[53:61].strip() + '\t'
+                        newPass = record[93:100].strip() + '\t'
+                        newCloth = record[101:108].strip() + '\t'
+                        newAdmin = record[109:116].strip() + '\t'
+                        newRate = record[117:124].strip() + '\t'
+                        newRemit = record[125:132].strip() + '\t'
+                    else :    
+                        origVoucher = record[17:25].strip() + '\t'
+                        origLd = record[35:37].strip() + '\t'
+                        origPg = record[38:40].strip() + '\t'
+                        origSt = record[41:43].strip() + '\t'
+                        origServicePeriodFrom = record[44:52].strip() + '\t'
+                        origServicePeriodTo = record[53:61].strip() + '\t'
+                        
+                        checkNumber = record[62:69].strip() + '\t'
+                        checkDate = record[75:83].strip() + '\t'
+                        authNumber = record[84:92].strip() + '\t'
+                        
+                        origPass = record[93:100].strip() + '\t'
+                        origCloth = record[101:108].strip() + '\t'
+                        origAdmin = record[109:116].strip() + '\t'
+                        origRate = record[117:124].strip()
+
+                        out_str = (voucherNumber + vendor + vendorName + placementVendorId + newRemit + lineNumber +
+                            caseNumber + recipientId + dob + newLd + newPg + newSt + newServicePeriodFrom + newServicePeriodTo + 
+                            newPass + newCloth + newAdmin + newRate + origVoucher + checkNumber + checkDate + authNumber +
+                            origLd + origPg + origSt + origServicePeriodFrom + origServicePeriodTo + origPass + origCloth +
+                            origAdmin + origRate)
+
+    # write to results file                                
+                        if out_str != ' ':
+                            f = open(outfile,"a")
+                            f.write(out_str + "\n")
+                            f.close()
+                            countWrites = countWrites +1 
+                            countLines = 0
+
+    df = pd.read_csv(outfile,sep='\t',lineterminator='\n',header=None)
+    df.to_excel(outfilexlsx,'Sheet1',index=False,header=False)   
+    os.remove(outfile)            
+    print("Completed!  " + str(countWrites) + " records converted from " + f_name + " !")
+
+    messagebox.showinfo("Completed - RETRT010", "Completed!  " + str(countWrites) + " records converted from " + f_name + " !")
 
     return
 
