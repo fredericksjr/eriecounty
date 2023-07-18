@@ -1,4 +1,7 @@
-<html>https://www4.erie.gov/themes/contrib/erie2021/logo.png</html>
+<html>
+<img src="https://www4.erie.gov/themes/contrib/erie2021/logo.png" width="24" height"24">
+  
+</html>
 
 # Erie County Utilities
 
