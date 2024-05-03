@@ -1,4 +1,4 @@
-https://www4.erie.gov/themes/contrib/erie2021/logo.png
+https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FErieCountyNY&psig=AOvVaw17nU-XgfbKvBINpT-XKR9R&ust=1714831061127000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKjQntfR8YUDFQAAAAAdAAAAABAE
 
 # Erie County Utilities
 
