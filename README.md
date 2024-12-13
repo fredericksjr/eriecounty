@@ -1,4 +1,4 @@
-
+[![An image of @fredericksjr's Holopin badges, which is a link to view their full Holopin profile](https://holopin.me/fredericksjr)](https://holopin.io/@fredericksjr)
 
 # Erie County Utilities
 
