@@ -1,5 +1,3 @@
-[![An image of @fredericksjr's Holopin badges, which is a link to view their full Holopin profile](https://holopin.me/fredericksjr)](https://holopin.io/@fredericksjr)
-
 # Erie County Utilities
 
 convertNASReports is a tool for converting NYS NAS text files trom text to xlsx files in order to be pulled in to various databases and applications like SQLm, Crystal Reports & Dynamics 365.
